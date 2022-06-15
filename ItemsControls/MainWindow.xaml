@@ -1,0 +1,110 @@
+﻿<Window x:Class="ItemsControls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItemsControls"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Label Content="Personer:"
+               Margin="40,10"
+               Width="100"
+               Height="25"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top" />
+        <ListBox x:Name="listBoxProducts"
+                 Margin="40"
+                 Width="250"
+                 HorizontalAlignment="Left"
+                 DisplayMemberPath="Name"
+                 SelectionChanged="listBoxProducts_SelectionChanged" />
+        <Button Content="Tilføj"
+                HorizontalAlignment="Left"
+                Margin="310,99,0,0"
+                Padding="12, 5"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="1.182,0.669"
+                Click="Button_Click" />
+        <Button Content="Rediger"
+                HorizontalAlignment="Left"
+                Margin="372,99,0,0"
+                Padding="6, 5"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="1.182,0.669"
+                Click="Edit_Click" />
+        <TextBox x:Name="AddProduct_Name"
+                 HorizontalAlignment="Left"
+                 Margin="430,40,0,0"
+                 Text="Navn"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_Description"
+                 HorizontalAlignment="Left"
+                 Margin="430,80,0,0"
+                 Text="Beskrivelse"
+                 Height="50"
+                 MaxHeight="50"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_UnitPrice"
+                 HorizontalAlignment="Left"
+                 Margin="560,40,0,0"
+                 Text="Pris"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_AvailableProducts"
+                 HorizontalAlignment="Left"
+                 Margin="430,60,0,0"
+                 Text="Antal på lager"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <DatePicker x:Name="AddProduct_CreationDate"
+                    HorizontalAlignment="Left"
+                    Margin="560,60,0,0"
+                    VerticalAlignment="Top"
+                    Width="120" />
+        <ComboBox x:Name="AddProduct_Category" HorizontalAlignment="Left"
+                  Margin="312,42,0,0"
+                  VerticalAlignment="Top"
+                  SelectedValuePath="Content"
+                  Width="105">
+            <ComboBoxItem Content="Drikkevarer" />
+            <ComboBoxItem Content="Accessories" />
+            <ComboBoxItem Content="Byggematerialer" />
+        </ComboBox>
+        <DataGrid x:Name="GridList"
+                  Width="480"
+                  Height="250"
+                  Margin="300, 130, 0, 0"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Navn:"
+                                    Binding="{Binding Path=Name}" />
+                <DataGridTextColumn Header="Oprettet:"
+                                    Binding="{Binding Path=CreationDate}" />
+                <DataGridTextColumn Header="Beskrivelse:"
+                                    Binding="{Binding Path=Description}" />
+                <DataGridTextColumn Header="Kategori:"
+                                    Binding="{Binding Path=Category}" />
+                <DataGridTextColumn Header="Udløbet:"
+                                    Binding="{Binding Path=ProductExpired}" />
+                <DataGridTextColumn Header="Pris:"
+                                    Binding="{Binding Path=UnitPrice}" />
+                <DataGridTextColumn Header="Tilgængelig:"
+                                    Binding="{Binding Path=AvailableProducts}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

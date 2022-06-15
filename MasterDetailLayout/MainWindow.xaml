@@ -1,0 +1,240 @@
+﻿<Window x:Class="MasterDetailLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MasterDetailLayout"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600"
+        Width="1200">
+    <Window.Resources>
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Text"
+                    Value="Vælg dato" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Header="Film (ny)"
+                  Margin="5"
+                  Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="39" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Label Content="Titel:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <Label Content="Udgivelse:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+                <Label Content="Instruktør:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="2"
+                       Grid.Column="0" />
+                <Label Content="Farve:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="3"
+                       Grid.Column="0" />
+                <Label Content="Format:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+                <Label Content="Genre:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="6"
+                       FontSize="15"
+                       Grid.Row="7"
+                       Grid.Column="0" />
+                <TextBox x:Name="NewMovie_Title"
+                         Height="20"
+                         Width="130"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         Margin="6"
+                         FontSize="15"
+                         Grid.Row="0"
+                         Grid.Column="1" />
+                <DatePicker x:Name="NewMovie_Release"
+                            Height="30"
+                            Width="130"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="6"
+                            FontSize="15"
+                            Grid.Row="1"
+                            Grid.Column="1" />
+                <TextBox x:Name="Director"
+                         Height="20"
+                         Width="130"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         Margin="6"
+                         FontSize="15"
+                         Grid.Row="2"
+                         Grid.Column="1" />
+                <CheckBox x:Name="NewMovie_IsColored"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Left"
+                          Margin="6"
+                          FontSize="15"
+                          Grid.Row="3"
+                          Grid.Column="1" />
+                <RadioButton x:Name="NewMovie_FormatButton1"
+                             Content="16:9"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Margin="6"
+                             FontSize="15"
+                             Grid.Row="4"
+                             Grid.Column="1" />
+                <RadioButton x:Name="NewMovie_FormatButton2"
+                             Content="3:4"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Margin="6"
+                             FontSize="15"
+                             Grid.Row="5"
+                             Grid.Column="1" />
+                <RadioButton x:Name="NewMovie_FormatButton3"
+                             Content="22:9"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Margin="6"
+                             FontSize="15"
+                             Grid.Row="6"
+                             Grid.Column="1" />
+                <ComboBox x:Name="NewMovie_Genre"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Left"
+                          Margin="6"
+                          Text="Sci-Fi"
+                          IsReadOnly="True"
+                          Width="130"
+                          FontSize="15"
+                          Grid.Row="7"
+                          Grid.Column="1">
+                    <ComboBoxItem Content="Sci-Fi" />
+                    <ComboBoxItem Content="Epic Space Opera" />
+                    <ComboBoxItem Content="Action" />
+                </ComboBox>
+                <Button Content="Gem"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="6"
+                        Height="35"
+                        Width="70"
+                        FontSize="15"
+                        Grid.Row="8"
+                        Grid.Column="1" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Alle film"
+                  Margin="5"
+                  Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Søg Titel:"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <Label Content="Søg udg fra:"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <TextBox x:Name="Search_Bar"
+                         Height="20"
+                         Width="130"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         Margin="6"
+                         FontSize="15"
+                         Grid.Row="0"
+                         Grid.Column="1" />
+                <Button x:Name="Search_Button"
+                        Height="20"
+                        Content="Søg"
+                        Width="60"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="6"
+                        FontSize="15"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Click="ButtonClick_Search"/>
+                <DataGrid x:Name="GridList"
+                          Height="350"
+                          Width="602"
+                          Margin="10,0,0,0"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Left"
+                          Grid.Row="2"
+                          CanUserAddRows="False"
+                          AutoGenerateColumns="False"
+                          Grid.ColumnSpan="3">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Titel:"
+                                            Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Udgår:"
+                                            Binding="{Binding Path=ReleaseDate}" />
+                        <DataGridTextColumn Header="Instruktør:"
+                                            Binding="{Binding Path=Director}" />
+                        <DataGridTextColumn Header="Farve:"
+                                            Binding="{Binding Path=IsColor}" />
+                        <DataGridTextColumn Header="Format:"
+                                            Binding="{Binding Path=Format}" />
+                        <DataGridTextColumn Header="Genre:"
+                                            Binding="{Binding Path=Genre}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
